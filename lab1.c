@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
   int i, N;
   struct timeval T1, T2;
   long delta_ms;
+  float X = 0;
   N = atoi(argv[1]);        /* N равен первому параметру командной строки */
   gettimeofday(&T1, NULL);  /* запомнить текущее время T1 */
   for (i = 0; i < 100; i++) /* 100 экспериментов*/
@@ -77,7 +78,6 @@ int main(int argc, char *argv[])
     float min = 0;
     int k = 0;
     int temp = 0;
-    float X = 0;
 
     while (min == 0)
     {
@@ -92,11 +92,11 @@ int main(int argc, char *argv[])
         X = X + sin(M2[j]);
       }
     }
-    // printf("X: %fd\n", X); /* T2 -T1 */
   }
 
   gettimeofday(&T2, NULL); /* запомнить текущее время T2 */
   delta_ms = 1000 * (T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec) / 1000;
   printf("\n N=%d. Milliseconds passed: %ld\n", N, delta_ms); /* T2 - T1 */
+      // printf("X: %fd\n", X); /* T2 -T1 */
   return 0;
 }
