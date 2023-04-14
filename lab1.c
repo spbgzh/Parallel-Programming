@@ -5,7 +5,7 @@
 #include <time.h>
 
 #define A 14
-
+int rand_r(unsigned int *seedp);
 void comb_sort(float *data, int n)
 {
   const float shrink = 1.25;
