@@ -34,7 +34,7 @@ void comb_sort(float *data, int n)
 
 int main(int argc, char *argv[])
 {
-  int i, N, j, tmp, M;
+  int i, N, M;
   struct timeval T1, T2;
   long delta_ms;
   float X = 0;
@@ -60,9 +60,10 @@ int main(int argc, char *argv[])
     for (int j = 0; j < N; j++)
     {
       M1[j] = rand_r(&seed) % A + 1;
-      fwsSqrt_32f_I(M1, N);
-      fwsExp_32f_I(M1, N);
     }
+
+    fwsSqrt_32f_I(M1, N);
+    fwsExp_32f_I(M1, N);
     // M2
     for (int j = 0; j < N / 2; j++)
     {
@@ -103,7 +104,8 @@ int main(int argc, char *argv[])
 
   gettimeofday(&T2, NULL); /* запомнить текущее время T2 */
   delta_ms = 1000 * (T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec) / 1000;
+  delta_ms +=1;
   printf("\n N=%d. Milliseconds passed: %ld\n", N, delta_ms); /* T2 - T1 */
-      // printf("X: %fd\n", X); /* T2 -T1 */
+  //printf("X: %fd\n", X); /* T2 -T1 */
   return 0;
 }
