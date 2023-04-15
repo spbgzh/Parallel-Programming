@@ -21,4 +21,3 @@ done
 for ((var = $N1; var <= $N2; var += $delta)); do
     ./lab2-fw $var 32 >> par_fw_32.txt
 done
-
