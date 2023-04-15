@@ -73,9 +73,8 @@ int main(int argc, char *argv[])
       {
         M2[j] = M2[j] + M2CP[j - 1];
       }
-      M2[j] = log10(M2[j]);
     }
-    fwsLog10_32f_A11(M2CP,M2,N/2);
+    fwsLog10_32f_A11(M2,M2,N/2);
 
     /* Этап Merge */
     for (int j = 0; j < N / 2; j++)
