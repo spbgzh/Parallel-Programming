@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
       M1[j] = rand_r(&seed) % A + 1;
       M1[j] = exp(sqrt(M1[j]));
     }
-// M2
+    // M2
     for (int j = 0; j < N / 2; j++)
     {
       M2[j] = rand_r(&seed) % (9 * A + 1) + A;
@@ -62,8 +62,8 @@ int main(int argc, char *argv[])
       {
         M2[j] = M2[j] + M2CP[j - 1];
       }
+      M2[j] = log10(M2[j]);
     }
-    fwsLog10_32f_A11(M2,M2,N/2);
 
     /* Этап Merge */
     for (int j = 0; j < N / 2; j++)

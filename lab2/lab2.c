@@ -63,14 +63,16 @@ int main(int argc, char *argv[])
     }
 
     fwsSqrt_32f_I(M1, N);
-    fwsExp_32f_I(M1, N);
     // M2
     for (int j = 0; j < N / 2; j++)
     {
       M2[j] = rand_r(&seed) % (9 * A + 1) + A;
-      M2CP[j+1] = M2[j];
+      M2CP[j] = M2[j];
+      if (j != 0)
+      {
+        M2[j] = M2[j] + M2CP[j - 1];
+      }
     }
-    fwsAdd_32f_I(M2, M2CP, N/2);
     fwsLog10_32f_A11(M2CP,M2,N/2);
 
     /* Этап Merge */
