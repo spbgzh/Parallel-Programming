@@ -63,6 +63,7 @@ int main(int argc, char *argv[])
     }
 
     fwsSqrt_32f_I(M1, N);
+    fwsExp_32f_I(M1, N);
     // M2
     for (int j = 0; j < N / 2; j++)
     {
@@ -72,6 +73,7 @@ int main(int argc, char *argv[])
       {
         M2[j] = M2[j] + M2CP[j - 1];
       }
+      M2[j] = log10(M2[j]);
     }
     fwsLog10_32f_A11(M2CP,M2,N/2);
 
