@@ -1,0 +1,33 @@
+
+ N=1250. Milliseconds passed: 251
+X: 5338.516602
+
+ N=45125. Milliseconds passed: 603
+X: 198694.921875
+
+ N=89000. Milliseconds passed: 1024
+X: 342424.781250
+
+ N=132875. Milliseconds passed: 1277
+X: 537646.187500
+
+ N=176750. Milliseconds passed: 1433
+X: 723626.375000
+
+ N=220625. Milliseconds passed: 2034
+X: 908504.187500
+
+ N=264500. Milliseconds passed: 2271
+X: 1106691.875000
+
+ N=308375. Milliseconds passed: 2749
+X: 1291254.000000
+
+ N=352250. Milliseconds passed: 2964
+X: 1435610.375000
+
+ N=396125. Milliseconds passed: 4020
+X: 1630533.875000
+
+ N=440000. Milliseconds passed: 3752
+X: 1813404.875000
