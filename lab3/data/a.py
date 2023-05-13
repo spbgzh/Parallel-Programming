@@ -1,6 +1,3 @@
-import numpy as np
-import pandas as pd
-
 path = "./lab3/data/"
 list_ = []
 for index in ["1", "2", "4", "8"]:
