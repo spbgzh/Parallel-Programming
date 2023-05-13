@@ -104,7 +104,6 @@ int main(int argc, char *argv[]) {
 #pragma omp parallel for default(none) shared(N, M2, min) reduction(+:X)
     for (int j = 0; j < N / 2; j++) {
       if ((int)(M2[j] / min) % 2 == 0) {
-#pragma omp atomic
         X+= sin(M2[j]);
       }
     }
