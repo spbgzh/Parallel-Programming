@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
       M1[j] = rand_r(&seed) % A + 1;
     }
 
-#pragma omp parallel for default(none) shared(N, M1) schedule(SCHEDULE_TYPE, CHUNK_SIZE)
+#pragma omp parallel for default(none) shared(N, M1)
     for (int j = 0; j < N; j++)
     {
       M1[j] = exp(sqrt(M1[j]));
@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
       M2CP[j] = M2[j];
 
     }
-#pragma omp parallel for default(none) shared(N, M2, M2CP) schedule(SCHEDULE_TYPE, CHUNK_SIZE)
+#pragma omp parallel for default(none) shared(N, M2, M2CP)
     for (int j = 0; j < N / 2; j++)
     {
 
@@ -84,7 +84,7 @@ int main(int argc, char *argv[]) {
       M2[j] = log10(M2[j]);
     }
 
-#pragma omp parallel for default(none) shared(N, M1, M2) schedule(SCHEDULE_TYPE, CHUNK_SIZE)
+#pragma omp parallel for default(none) shared(N, M1, M2)
     /* Этап Merge */
     for (int j = 0; j < N / 2; j++) {
       M2[j] = M1[j] / M2[j];
@@ -101,7 +101,7 @@ int main(int argc, char *argv[]) {
       min = (fabs(M2[k]) < 0.00001) ? M2[k] : 0;
       k++;
     }
-#pragma omp parallel for default(none) shared(N, M2, min) reduction(+:X) schedule(SCHEDULE_TYPE, CHUNK_SIZE)
+#pragma omp parallel for default(none) shared(N, M2, min) reduction(+:X)
     for (int j = 0; j < N / 2; j++) {
       if ((int)(M2[j] / min) % 2 == 0) {
 #pragma omp atomic
